@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block title%} URL SHORTENER{% endblock%}
+
+{% block main %}
+
+  <h1>
+  URL SHORTNER </h1>
+  {% for message in get_flashed_messages() %}
+  <h2>{{message}}</h2>
+  {% endfor %}
+  <h2> {{name}}</h2>
+  <form action='your_url'method='post'>
+     <label for ='url' >Website Url</label>
+  	<input type='url' name='url' value ="" required>
+  	<br>
+     <label for ='text' >Short Name</label>
+  	<input type='text' name='code' value ="" required>
+  	<br>
+  	<input type="submit" value="Shorten">
+
+  </form>
+  <form action='your_url'method='post' enctype="multipart/form-data">
+     <label for ='file' >Select File: </label>
+  	<input type='file' name='file' value ="" required>
+  	<br>
+     <label for ='text' >Short Name</label>
+  	<input type='text' name='code' value ="" required>
+  	<br>
+  	<input type="submit" value="Shorten">
+  </form>
+
+  {% if codes %}
+  <h2> Codes you have created so far: </h2>
+  <ul>
+    {% for code in codes%}
+    <a href="{{url_for('url_redirect',code=code)}}">
+    <li>{{code}}</li>
+    </a>
+    {% endfor %}
+  </ul>
+  {%  endif %}
+
+{% endblock %}

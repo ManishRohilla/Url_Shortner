@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+
+{% block title%}URL for "{{code}}"{% endblock%}
+
+{% block main %}
+<h2>
+Your URL has been shorten succesfully. Give it a try by clicking the name provided below. :) </h2>
+<h3><a href="{{url_for('url_redirect',code=code)}}">{{code}}</a></h3>
+{% endblock%}
