@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+  {% block content %}
+<h1>Selected Employees are</h1>
+
+  <div>
+      <table class="table table-hover">
+          <thead>
+          <tr>
+              <th scope="col">Employee Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Office </th>
+              <th scope="col">Designation</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Success Rate</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <!-- Construct the rest of courses here -->
+          {% for data in employee_data %}
+          <tr>
+              <td scope='row'>{{ data["EMP ID"] }}</td>
+              <td>{{ data["Name"] }}</td>
+              <td>{{ data["Contact"] }}</td>
+              <td>{{ data["Location"] }}</td>
+              <td>{{ data["Designation"] }}</td>
+              <td>{{ data["Rating"] }}</td>
+              <td>{{ data["Success Rate"] }}</td>
+          </tr>
+          {% endfor %}
+
+          </tbody>
+      </table>
+  </div>
+  {% endblock %}
